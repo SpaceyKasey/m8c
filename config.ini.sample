@@ -1,6 +1,8 @@
 [graphics]
 ; set this to true to have m8c start fullscreen
 fullscreen=false
+; set this to true to run m8c in software rendering mode (use for raspberry pi)
+software=false
 
 [keyboard]
 ; these need to be the decimal value of the SDL scancodes.
@@ -19,6 +21,7 @@ key_edit=224
 key_edit_alt=27
 key_delete=76
 key_reset=21
+key_reset=-1 //Defaulted disabled
 
 [gamepad]
 ; these need to be the decimal value of the SDL Controller buttons.
