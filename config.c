@@ -26,6 +26,7 @@ config_params_s init_config() {
   c.key_edit_alt = SDL_SCANCODE_X;
   c.key_delete = SDL_SCANCODE_DELETE;
   c.key_reset = SDL_SCANCODE_R;
+  c.key_quit = -1;
 
   c.gamepad_up = SDL_CONTROLLER_BUTTON_DPAD_UP;
   c.gamepad_left = SDL_CONTROLLER_BUTTON_DPAD_LEFT;
@@ -81,6 +82,7 @@ void write_config(config_params_s *conf) {
   sprintf(ini_values[initPointer++], "key_edit_alt=%d\n", conf->key_edit_alt);
   sprintf(ini_values[initPointer++], "key_delete=%d\n", conf->key_delete);
   sprintf(ini_values[initPointer++], "key_reset=%d\n", conf->key_reset);
+  sprintf(ini_values[initPointer++], "key_quit=%d\n", conf->key_quit);
   sprintf(ini_values[initPointer++], "[gamepad]\n");
   sprintf(ini_values[initPointer++], "gamepad_up=%d\n", conf->gamepad_up);
   sprintf(ini_values[initPointer++], "gamepad_left=%d\n", conf->gamepad_left);
@@ -185,6 +187,7 @@ void read_key_config(ini_t *ini, config_params_s *conf) {
   const char *key_edit_alt = ini_get(ini, "keyboard", "key_edit_alt");
   const char *key_delete = ini_get(ini, "keyboard", "key_delete");
   const char *key_reset = ini_get(ini, "keyboard", "key_reset");
+  const char *key_quit= ini_get(ini, "keyboard", "key_quit");
 
   if (key_up)
     conf->key_up = SDL_atoi(key_up);
@@ -214,6 +217,8 @@ void read_key_config(ini_t *ini, config_params_s *conf) {
     conf->key_delete = SDL_atoi(key_delete);
   if (key_reset)
     conf->key_reset = SDL_atoi(key_reset);
+  if (key_quit)
+    conf->key_quit= SDL_atoi(key_quit);
 }
 
 void read_gamepad_config(ini_t *ini, config_params_s *conf) {

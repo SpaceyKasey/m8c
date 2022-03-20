@@ -21,6 +21,7 @@ key_edit=224
 key_edit_alt=27
 key_delete=76
 key_reset=21
+key_reset=-1 //Defaulted disabled
 
 [gamepad]
 ; these need to be the decimal value of the SDL Controller buttons.
