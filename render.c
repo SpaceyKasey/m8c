@@ -39,6 +39,10 @@ int initialize_sdl(int init_fullscreen, int init_software) {
 
   rend = SDL_CreateRenderer(win, -1, init_software ? SDL_RENDERER_SOFTWARE : SDL_RENDERER_ACCELERATED);
 
+  if(init_fullscreen){
+    SDL_ShowCursor(SDL_DISABLE);
+  }
+
   SDL_RenderSetLogicalSize(rend, 320, 240);
 
   maintexture = SDL_CreateTexture(rend, SDL_PIXELFORMAT_ARGB8888,
